@@ -9,13 +9,10 @@ const LoginForm = () => {
   const [state, formAction] = useFormState(login, undefined);
 
   return (
-    <form
-      className={styles.form}
-      action={formAction}
-    >
+    <form className={styles.form} action={formAction}>
       <input type="text" placeholder="username" name="username" />
       <input type="password" placeholder="password" name="password" />
-      <button type="button">Login</button>
+      <button type="submit">Login</button>
       {state?.error}
       <Link href="/register">
         {"Don't have an account?"} <b>Register</b>

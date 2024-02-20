@@ -26,7 +26,9 @@ const RegisterForm = () => {
         placeholder="password again"
         name="passwordRepeat"
       />
-      <button>Register</button>
+      <button type="submit" onClick={() => console.log("clicked")}>
+        Register
+      </button>
       {state?.error}
       <Link href="/login">
         Have an account? <b>Login</b>
