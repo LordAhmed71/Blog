@@ -1,18 +1,15 @@
 import PostCard from "@/components/postCard/PostCard";
 import styles from "./blog.module.css";
-
-const getDate = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  if (!res.ok) throw new Error("Something Went Wring");
-  return res.json();
-};
+import { getPosts } from "@/lib/data";
+import { Post } from "@/types";
 
 const BlogPage = async () => {
-  const posts = await getDate();
+  const posts: Post[] = await getPosts();
+
   return (
     <div className={styles.container}>
-      {posts.map((post: any) => (
-        <div className={styles.post} key={post.id}>
+      {posts.map((post: Post) => (
+        <div className={styles.post} key={post._id}>
           <PostCard post={post} />
         </div>
       ))}
